@@ -19,11 +19,11 @@ export default function Contact() {
 
     try {
       const response = await axios.post(
-        "https://ksourmi.pythonanywhere.com/api/create-message/",
+        "https://ksourmi.pythonanywhere.com/api/contact/",
         { name, email, message }
       );
 
-      if (response.status === 201) {
+      if (response.status === 200) {
         setDone(true);
       } else {
         setError(true);
