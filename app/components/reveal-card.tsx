@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import type { ReactNode } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 interface RevealCardProps {
@@ -20,6 +20,7 @@ const RevealCard = ({ children, className, delay = 0 }: RevealCardProps) => {
   }, [controls, inView]);
 
   return (
+    <AnimatePresence>
     <motion.div
       ref={ref}
       className={className}
@@ -36,6 +37,7 @@ const RevealCard = ({ children, className, delay = 0 }: RevealCardProps) => {
     >
       {children}
     </motion.div>
+    </AnimatePresence>
   );
 };
 

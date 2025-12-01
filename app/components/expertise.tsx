@@ -5,7 +5,7 @@ export default function Expertise() {
   return (
     <div
       id="expertise"
-      className="flex flex-col items-center pt-40 pb-20 lg:px-20 px-10"
+      className="flex flex-col items-center py-20 lg:px-20 px-10"
     >
       <h1 className="w-full text-center text-5xl mb-10">My Expertise</h1>
       <div className="flex justify-center flex-wrap">

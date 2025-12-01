@@ -1,38 +1,14 @@
-export type Image = {
-  id: number;
-  image: string;
-};
-
 export type Tag = {
   id: number;
   name: string;
-};
-
-export type Tool = {
-  id: number;
-  name: string;
-  icon: string;
-};
-
-export type Project = {
-  id: number;
-  name: string;
-  description: string;
-  short_description: string;
-  is_featured: Boolean;
-  images: Image[];
-  tags: Tag[];
-  tools: Tool[];
-  link: string;
-};
-
-
+}
 export type ListWriteUp = {
   id: number;
   title: string;
   description: string;
   slug: string;
   created_at:string;
+  tags: Tag[]
 }
 
 export type GetWriteUp = {
@@ -41,4 +17,31 @@ export type GetWriteUp = {
   description: string;
   created_at: string;
   content: string
+  url: string
+  tags: Tag[]
+}
+
+export type Image = {
+  id: number;
+  image: string;
+}
+export type ListProject = {
+  id: number;
+  name: string;
+  short_description:string;
+  tags: Tag[];
+  created_at: string;
+  slug: string;
+  image: Image;
+}
+
+export type GetProject = {
+  id: number;
+  name: string;
+  short_description: string;
+  description: string;
+  tags: Tag[];
+  created_at: string;
+  images: Image[]
+  link: string;
 }

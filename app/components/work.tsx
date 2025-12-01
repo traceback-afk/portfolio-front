@@ -4,13 +4,13 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import type { Project } from "../src/types";
+import type { ListProject } from "../src/types";
 import RevealCard from "./reveal-card";
 
 export default function FeaturedProjects() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState(false);
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<ListProject[]>([]);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -23,11 +23,8 @@ export default function FeaturedProjects() {
         );
 
         if (response.status === 200) {
-          // filtering projects so that only featured projects are shown in homepage
-          const filtered_projects = response.data.filter(
-            (project: Project) => project.is_featured
-          );
-          setProjects(filtered_projects);
+
+          setProjects(response.data);
         } else {
           setError(true);
         }
@@ -67,17 +64,16 @@ export default function FeaturedProjects() {
           <div className="flex flex-row justify-center flex-wrap">
             {projects.map((project) => (
               <RevealCard delay={0.3} className="lg:w-4/12 md:w-5/12 p-2">
-                <Link key={project.id} to={`/projects/${project.id}`}>
+                <Link key={project.id} to={`/projects/${project.slug}`}>
                   <div className="flex flex-col w-full overflow-hidden me-5 h-full border-2 border-base-300 shadow-lg">
                     <figure className="shadow-md">
                       <motion.img
-                        src={project.images[0].image}
+                        src={"https://ksourmi.pythonanywhere.com/" + project.image.image}
                         alt={project.name}
                         className=""
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                       />
-                      {/* <img src={project.images[0].image} alt={project.name} /> */}
                     </figure>
                     <div className="card-body flex flex-col p-4 bg-base-100">
                       <h2 className="card-title text-xl -mb-1">

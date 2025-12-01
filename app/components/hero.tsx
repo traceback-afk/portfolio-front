@@ -2,7 +2,7 @@
 
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { Link as ScrollLink } from "react-scroll";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import Balatro from "./balatro";
 
 export default function Hero() {
@@ -17,7 +17,8 @@ export default function Hero() {
         <h1 className="font-medium text-6xl lg:text-7xl text-center mb-8">
           KHASHAYAR SOURMI
         </h1>
-        <motion.p
+        <AnimatePresence>
+          <motion.p
           initial={{ opacity: 0, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -29,9 +30,12 @@ export default function Hero() {
         >
           FRONT & BACK-END DEVELOPER
         </motion.p>
+        </AnimatePresence>
+
         {/* <h1 className="mt-2 text-md lg:text-2xl text-center text-gray-200">
           FRONT & BACK-END DEVELOPER.
         </h1> */}
+        <AnimatePresence>
         <motion.div
           initial={{ opacity: 0, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,6 +56,7 @@ export default function Hero() {
             <i className="bi bi-linkedin text-3xl"></i>
           </a>
         </motion.div>
+        </AnimatePresence>
       </div>
       <div className="flex flex-col items-center z-1 absolute"></div>
 

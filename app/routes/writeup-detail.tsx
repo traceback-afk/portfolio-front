@@ -9,7 +9,7 @@ import { Link as ScrollLink } from "react-scroll";
 import axios from "axios";
 import ReactMarkdown from "react-markdown"
 
-export default function ProjectDetail() {
+export default function WriteUpDetail() {
   const { slug } = useParams();
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState(false);
@@ -75,13 +75,22 @@ export default function ProjectDetail() {
               </ul>
             </div>
             <div className="mb-20">
-              <h1 className="font-md text-3xl my-4 md:text-5xl">
-              {writeUp?.title}
-              </h1>
+              <div className="flex flex-row justify-between items-center">
+                <div className="flex flex-row items-center">
+                  <i className="bi bi-chevron-compact-right text-3xl"></i>
+
+                  <h1 className="font-md text-2xl my-4 md:text-4xl">{writeUp?.title}</h1>
+                </div>
+              <a className="btn btn-base" href={writeUp?.url}>Open Challenge</a>
+              </div>
               <p className="text-gray-300 mb-4 lg:w-5/12 md:w-6/12">
                 {writeUp?.description}
               </p>
+
               <small className="text-gray-500">{createdAt}</small>
+
+
+
             </div>
 
           <div className="prose prose-body dark:prose-invert">

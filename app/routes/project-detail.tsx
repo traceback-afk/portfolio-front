@@ -3,16 +3,16 @@
 import { useParams } from "react-router";
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
-import type { Project } from "~/src/types";
+import type { GetProject } from "~/src/types";
 import { Link } from "react-router";
 import { Link as ScrollLink } from "react-scroll";
 import axios from "axios";
 
 export default function ProjectDetail() {
-  const { id } = useParams();
+  const { slug } = useParams();
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState(false);
-  const [project, setProject] = useState<Project>();
+  const [project, setProject] = useState<GetProject>();
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -21,7 +21,7 @@ export default function ProjectDetail() {
 
       try {
         const response = await axios.get(
-          `https://ksourmi.pythonanywhere.com/api/projects/${id}`
+          `https://ksourmi.pythonanywhere.com/api/project/${slug}`
         );
 
         if (response.status === 200) {
@@ -81,30 +81,9 @@ export default function ProjectDetail() {
           </div>
           <div className="flex flex-col w-full gap-4">
             {project?.images.map((image) => (
-              <img key={image.id} src={image.image} className="w-full" />
+              <img key={image.id} src={"https://ksourmi.pythonanywhere.com/" + image.image} className="w-full" />
             ))}
           </div>
-          {/* <div className="flex gap-2">
-            {project?.tools.map((tool) => (
-              <img
-                key={tool.id}
-                className="w-8 h-8"
-                src={tool.icon}
-                alt={tool.name}
-              />
-            ))}
-          </div>
-
-          <div className="flex flex-row flex-wrap gap-2 mt-2 mb-4 justify-center">
-            {project?.tags.map((tag) => (
-              <div
-                key={tag.id}
-                className="badge badge-outline badge-sm text-gray-500"
-              >
-                {tag.name}
-              </div>
-            ))}
-          </div> */}
         </div>
       )}
     </div>
