@@ -79,7 +79,7 @@ export default function ProjectDetail() {
               View On GitHub
             </a>
           </div>
-          <div className="flex flex-col w-full gap-4">
+          <div className="flex flex-col w-full md:w-7/12 gap-4">
             {project?.images.map((image) => (
               <img key={image.id} src={"https://ksourmi.pythonanywhere.com/" + image.image} className="w-full" />
             ))}

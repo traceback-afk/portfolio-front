@@ -29,7 +29,7 @@ export default function Expertise() {
             <h1 className="text-2xl mb-4">Web Development</h1>
             <p>
               Experienced in <span className="text-info">React</span>,{" "}
-              <span className="text-info">FastAPI</span>,{" "}
+              <span className="text-info">Django Ninja</span>,{" "}
               <span className="text-info">Django REST Framework</span> and{" "}
               <span className="text-info">Postman</span>, building responsive
               UIs and scalable APIs.
