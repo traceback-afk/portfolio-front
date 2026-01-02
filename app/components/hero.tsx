@@ -61,7 +61,7 @@ export default function Hero() {
       <div className="flex flex-col items-center z-1 absolute"></div>
 
       <ScrollLink
-        to="writeups"
+        to="expertise"
         smooth="easeOutQuad"
         duration={600}
         className="flex flex-col items-center mt-20 cursor-pointer absolute bottom-20"
