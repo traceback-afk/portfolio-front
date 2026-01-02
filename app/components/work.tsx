@@ -65,17 +65,17 @@ export default function FeaturedProjects() {
             {projects.map((project) => (
               <RevealCard delay={0.3} className="lg:w-4/12 md:w-5/12 p-2">
                 <Link key={project.id} to={`/projects/${project.slug}`}>
-                  <div className="flex flex-col w-full overflow-hidden me-5 h-full border-2 border-base-300 shadow-lg">
+                  <div className="flex flex-col w-full h-full overflow-hidden border-2 border-base-300 shadow-lg">
                     <figure className="shadow-md">
                       <motion.img
                         src={"https://ksourmi.pythonanywhere.com/" + project.image.image}
                         alt={project.name}
-                        className=""
+                        className="w-full h-55 object-cover"
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                       />
                     </figure>
-                    <div className="card-body flex flex-col p-4 bg-base-100">
+                    <div className="card-body flex flex-col p-4 bg-base-100 flex-grow">
                       <h2 className="card-title text-xl -mb-1">
                         {project.name}
                       </h2>
