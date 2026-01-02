@@ -50,23 +50,29 @@ export default function ProjectDetail() {
           Something went wrong. Try again later.
         </span>
       ) : (
-        <div>
-          <div className="mb-4">
+        <div className="lg:flex ">
+          <div className="mb-4 lg:w-6/12">
             <h1 className="font-md text-3xl  mt-4 md:text-5xl">
               {project?.name}
             </h1>
+            <div className="flex gap-2 text-gray-500 mt-5 flex-wrap">
+              {project?.tags.map((tag)=>(
+                <small key={tag.id}>#{tag.name}</small>
+              ))}
+            </div>
             <div className="breadcrumbs text-sm my-20">
               <ul>
                 <li>
                   <Link to={"/"}>Home</Link>
                 </li>
                 <li>
-                  <Link to={"/#work"}>Portfolio</Link>
+                  <Link to={"/#work"}>My Work</Link>
                 </li>
                 <li>{project?.name}</li>
               </ul>
             </div>
-            <p className="text-gray-300 mb-4 lg:w-5/12 md:w-6/12">
+
+            <p className="text-gray-300 mb-4 lg:w-10/12 md:w-12/12">
               {project?.description}
             </p>
             <a
@@ -79,7 +85,7 @@ export default function ProjectDetail() {
               View On GitHub
             </a>
           </div>
-          <div className="flex flex-col w-full md:w-7/12 gap-4">
+          <div className="flex flex-col w-full md:w-10/12 lg:w-/12 gap-4">
             {project?.images.map((image) => (
               <img key={image.id} src={"https://ksourmi.pythonanywhere.com/" + image.image} className="w-full" />
             ))}
